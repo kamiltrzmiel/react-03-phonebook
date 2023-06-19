@@ -1,0 +1,27 @@
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.contactListitem {
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: lightgreen;
+  font-size: 24px;
+  border-radius: 5px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.delBtn {
+  display: flex;
+  font-size: 18px;
+  color: white;
+  background-color: red;
+  border-radius: 3px;
+  margin: 5px;
+}
