@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
-    contacts: [
+    contacts: JSON.parse(localStorage.getItem('contacts')) || [
       { id: 'id-1', name: 'Jose Arcadio Morales', number: '+34 459-123-563' },
       { id: 'id-2', name: 'Jan Nowakowski', number: '+48 443-859-125' },
       { id: 'id-3', name: 'Bruno Bierhals', number: '+49 645-122-792' },
@@ -14,6 +14,18 @@ export class App extends Component {
     ],
     filter: ''
   };
+
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem('contacts'));
+    if (contacts) {
+      this.setState({ contacts });
+    }
+  }
+
+  componentDidUpdate() {
+    const { contacts } = this.state;
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }
 
   addContact = (name, number) => {
     const { contacts } = this.state;
